@@ -15,6 +15,7 @@
  */
 package com.googlecode.webutilities.servlets;
 
+import com.googlecode.webutilities.common.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -368,7 +369,7 @@ public class JSCSSMergeServlet extends HttpServlet {
             LOGGER.trace("Processing resource : {}", resourcePath);
 
             InputStream is = null;
-            byte [] newLineBytes = "\n".getBytes();
+            byte [] newLineBytes = Constants.LINE_SEPARATOR.getBytes();
             try {
                 is = context.getResourceAsStream(resourcePath);
                 if (is == null) {
@@ -432,7 +433,7 @@ public class JSCSSMergeServlet extends HttpServlet {
             buffer.setLength(0);
             buffer.append(line);
             line = this.processCSSLine(context, contextPath, cssFilePath, buffer);
-            byte [] bytes = (line + "\n").getBytes();
+            byte [] bytes = (line + Constants.LINE_SEPARATOR).getBytes();
             outputStream.write(bytes);
             bytesWritten += bytes.length;
         }

@@ -16,6 +16,7 @@
 
 package com.googlecode.webutilities.modules.ne;
 
+import com.googlecode.webutilities.common.Constants;
 import com.googlecode.webutilities.modules.infra.ModuleRequest;
 import com.googlecode.webutilities.modules.infra.ModuleResponse;
 import com.googlecode.webutilities.util.Utils;
@@ -36,7 +37,6 @@ public class JSCSSMergeModule implements IModule {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(JSCSSMergeModule.class.getName());
 
-    @Override
     public DirectivePair parseDirectives(String ruleString) {
 
         DirectivePair pair = null;
@@ -78,7 +78,6 @@ class JSCSSMergeDirective implements PreChainDirective {
         this.autoCorrectUrlsInCss = autoCorrectUrlsInCss;
     }
 
-    @Override
     public int execute(ModuleRequest request, ModuleResponse response, ServletContext context) {
         this.context = context;
         String url = getURL(request);
@@ -249,7 +248,7 @@ class JSCSSMergeDirective implements PreChainDirective {
             buffer.setLength(0);
             buffer.append(line);
             line = this.processCSSLine(context, contextPath, cssFilePath, buffer);
-            outputStream.write((line + "\n").getBytes());
+            outputStream.write((line + Constants.LINE_SEPARATOR).getBytes());
         }
     }
 

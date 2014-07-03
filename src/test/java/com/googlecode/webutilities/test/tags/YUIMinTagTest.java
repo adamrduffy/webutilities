@@ -16,6 +16,7 @@
 
 package com.googlecode.webutilities.test.tags;
 
+import com.googlecode.webutilities.common.Constants;
 import com.googlecode.webutilities.tags.YUIMinTag;
 import com.googlecode.webutilities.test.util.TestUtils;
 import com.mockrunner.tag.NestedTag;
@@ -41,7 +42,7 @@ public class YUIMinTagTest extends AbstractTagTest {
             String[] resources = resourcesString.split(",");
             for (String resource : resources) {
                 LOGGER.trace("Setting resource : {}", resource);
-                yuiMinTag.addTextChild(TestUtils.readContents(this.getClass().getResourceAsStream(resource), webMockObjectFactory.getMockResponse().getCharacterEncoding())+"\n");
+                yuiMinTag.addTextChild(TestUtils.readContents(this.getClass().getResourceAsStream(resource), webMockObjectFactory.getMockResponse().getCharacterEncoding())+ Constants.LINE_SEPARATOR);
             }
         }
     }

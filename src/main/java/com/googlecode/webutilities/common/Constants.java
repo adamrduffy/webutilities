@@ -125,6 +125,8 @@ public final class Constants {
     //Map that holds Image path -> CSS files path that refers it
     public static final Map<String, List<String>> CSS_IMG_REFERENCES = new HashMap<String, List<String>>();
 
+    public static final String LINE_SEPARATOR = System.getProperty("line.separator");
+
     private Constants() {
     } //non instantiable
 

@@ -32,10 +32,8 @@ public final class TestUtils {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         StringBuilder stringBuilder = new StringBuilder();
-        //String line = null;
         int c;
         while ((c = reader.read()) != -1) {
-            //stringBuilder.append(line).append("\n");
             stringBuilder.append((char)c);
         }
         inputStream.close();
@@ -43,19 +41,6 @@ public final class TestUtils {
 
     }
 
-
-
-    public static boolean contentEquals(InputStream streamLeft, InputStream streamRight) throws IOException {
-        int ch;
-        while ((ch = streamLeft.read()) != -1) {
-            int ch2 = streamRight.read();
-            if (ch != ch2) {
-                return false;
-            }
-        }
-        int ch2 = streamRight.read();
-        return (ch2 == -1);
-    }
 
     public static boolean compressedContentEquals(String left, String right) throws IOException {
         int ch, pos = 0;
