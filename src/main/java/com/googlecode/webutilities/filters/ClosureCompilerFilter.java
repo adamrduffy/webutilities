@@ -61,7 +61,6 @@ public class ClosureCompilerFilter extends AbstractFilter {
     }
 
     //init
-    @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
 
         //build compiler options
@@ -151,7 +150,7 @@ public class ClosureCompilerFilter extends AbstractFilter {
             if ("acceptConstKeyword".equals(name)) {
                 compilerOptions.setAcceptConstKeyword(readBoolean(value, false));
             } else if ("charset".equals(name)) {
-                compilerOptions.setOutputCharset(readString(value, "UTF-8"));
+                compilerOptions.setOutputCharset(readString(value, Constants.DEFAULT_CHARSET));
             } else if ("compilationLevel".equals(name)) {
                 CompilationLevel compilationLevel = CompilationLevel.valueOf(value);
                 compilationLevel.setOptionsForCompilationLevel(compilerOptions);

@@ -82,7 +82,6 @@ public abstract class AbstractFilter implements Filter, IgnoreAcceptContext {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractFilter.class.getName());
 
-    @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
         LOGGER.debug("Initializing...");
@@ -150,7 +149,6 @@ public abstract class AbstractFilter implements Filter, IgnoreAcceptContext {
         return !this.isQueryStringIgnored(queryString) && (this.acceptQSPattern == null || (queryString != null && queryString.matches(acceptQSPattern)));
     }
 
-  @Override
     public void destroy() {
         LOGGER.debug("destroying...");
         this.filterConfig = null;
