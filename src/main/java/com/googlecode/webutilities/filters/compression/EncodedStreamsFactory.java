@@ -16,6 +16,8 @@
 
 package com.googlecode.webutilities.filters.compression;
 
+import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -158,7 +160,7 @@ class DeflateEncodedStreamsFactory extends EncodedStreamsFactory {
         return new CompressedInput() {
 
             public InputStream getCompressedInputStream() throws IOException {
-                return new DeflaterInputStream(inputStream);
+                return new GzipCompressorInputStream(inputStream);
             }
 
         };

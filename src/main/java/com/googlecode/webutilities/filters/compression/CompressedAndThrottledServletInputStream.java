@@ -78,7 +78,7 @@ final class CompressedAndThrottledServletInputStream extends ServletInputStream 
                 Thread.sleep(SLEEP_DURATION_MS);
             } catch (InterruptedException e) {
                 this.close();
-                throw new IOException("Thread aborted", e);
+                throw new IOException("Thread aborted");
             }
         }
     }
